@@ -15,6 +15,35 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-themer")({
+      themes: [
+        {
+          // name your theme anything that could be a valid css class name
+          // remember what you named your theme because you will use it as a class to enable the theme
+          name: "first-theme",
+          // put any overrides your theme has here
+          // just as if you were to extend tailwind's theme like normal https://tailwindcss.com/docs/theme#extending-the-default-theme
+          extend: {
+            colors: {
+              primary: "blue",
+            },
+          },
+        },
+        {
+          // name your theme anything that could be a valid css class name
+          // remember what you named your theme because you will use it as a class to enable the theme
+          name: "second-theme",
+          // put any overrides your theme has here
+          // just as if you were to extend tailwind's theme like normal https://tailwindcss.com/docs/theme#extending-the-default-theme
+          extend: {
+            colors: {
+              primary: "red",
+            },
+          },
+        },
+      ],
+    }),
+  ],
 };
 export default config;
