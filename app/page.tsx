@@ -1,15 +1,23 @@
+import { CalendarEvent, ics } from "calendar-link";
+import dayjs from "dayjs";
 
 export default async function Home() {
  
+  const event: CalendarEvent = {
+    title: 'title',
+    description: 'desction',
+    start: dayjs(),
+    duration: [3, 'hour'],
+    
+   };
+  const icsData = ics(event)
+
 
   return (
     <>
-     <div className="first-theme">
-      <span className="text-primary">this is first theme</span>
-     </div>
-     <div className="second-theme">
-      <span className="text-primary">this is second theme</span>
-     </div>
+    <a href={icsData} download="calendar">
+        add to calendar
+      </a>
      </>
   );
 }
